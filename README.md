@@ -975,4 +975,256 @@ Common Ports:
 - Attacks target every OSI layer  
 - Defense requires layered controls  
 - Availability depends on redundancy and resilience  
-- Secure design principles guide all architectures  
+- Secure design principles guide all architectures
+
+# CC – Chapter 5 Lecture Notes  
+Security Operations, Cryptography, Data Handling, and Human Risk
+
+---
+
+## Overview
+Domain 5 focuses on **day-to-day security operations**. It covers how organizations **secure systems, data, and people** through cryptography, configuration management, governance, and user awareness.
+
+### Domain 5 Topics
+- Configuration, patch, and change management  
+- Cryptography and hashing  
+- Attacks on cryptographic systems  
+- Data handling, classification, retention, and disposal  
+- Administrative (directive) controls  
+- Security awareness and training  
+- Social engineering  
+
+---
+
+## Cryptography
+
+### Purpose of Cryptography
+Cryptography supports:
+- **Confidentiality** – keeping data secret  
+- **Integrity** – ensuring data is not altered  
+- **Authentication** – verifying identity  
+- **Non-repudiation** – preventing denial of actions  
+
+### Key Definitions
+- **Cryptology**: Science of secure communication  
+- **Cryptography**: Creating secure messages  
+- **Cryptanalysis**: Breaking encryption  
+- **Cipher**: Cryptographic algorithm  
+- **Plaintext**: Unencrypted data  
+- **Ciphertext**: Encrypted data  
+
+### Historical Ciphers (Testable)
+- **Spartan Scytale** – Transposition cipher  
+- **Caesar Cipher** – Substitution cipher  
+
+---
+
+## Encryption Types
+
+### Symmetric Encryption
+- Single shared key  
+- Fast and strong per bit  
+- Key distribution is difficult at scale  
+
+### Asymmetric Encryption
+- Public and private key pair  
+- Slower, weaker per bit  
+- No pre-shared secret required  
+
+### Hybrid Encryption
+- Asymmetric encryption exchanges a session key  
+- Symmetric encryption handles data transfer  
+- Used in TLS/HTTPS  
+
+---
+
+## Hashing
+
+### Hash Functions
+- One-way functions used for **integrity**
+- Fixed-length output (message digest)
+- Small data changes result in entirely different hashes  
+
+### Key Concepts
+- **Collision**: Two inputs produce the same hash (rare)  
+- Hashing is not encryption and cannot be reversed  
+
+---
+
+## Attacks on Cryptography
+
+### Common Attacks
+- **Key theft** – Stealing private keys  
+- **Brute force** – Trying all possible keys  
+- **Man-in-the-Middle (MITM)** – Intercepting communication  
+- **Side-channel attacks** – Using power, timing, or hardware data  
+
+### Defensive Techniques
+- Key stretching  
+- Strong key management  
+- Secure key storage  
+
+---
+
+## Logging and Monitoring
+
+### Security Audit Logs
+- Centralized, secure, and automated  
+- Limited administrator access  
+- Retention policies required  
+
+### Common Logging Problems
+- Logs not reviewed regularly  
+- Inadequate retention  
+- Lack of correlation tools  
+- Poor prioritization of alerts  
+
+---
+
+## Data Handling and Lifecycle
+
+### Sensitive Data Handling
+- Access limited to trusted individuals  
+- Logging of access and usage  
+- Secure, controlled storage locations  
+
+### Data Retention
+- Keep data only as long as required  
+- Follow legal and regulatory requirements  
+- Industry-specific rules apply  
+
+### Data Disposal
+
+#### Paper
+- Cross-shredding recommended  
+
+#### Digital
+- **Delete / Format**: Recoverable  
+- **Overwrite (Clear)**: Writes over data  
+- **Purge**: Makes recovery infeasible  
+- **Degaussing**: Destroys magnetic media  
+- **Physical destruction**: Crushing, shredding, incineration  
+
+### Information Lifecycle
+1. Data creation  
+2. Data use  
+3. Archival  
+4. Disposal  
+
+---
+
+## Configuration Management
+
+### System Hardening
+- Close unused ports  
+- Disable unnecessary services  
+- Remove default accounts  
+- Apply secure baselines  
+
+### Best Practices
+- Use hardened OS images  
+- Vulnerability scanning before production  
+- Monitor deviations from baselines  
+
+---
+
+## Patch Management
+- Apply patches regularly  
+- Includes OS, applications, network devices, and IoT  
+- Centralized patching tools improve consistency  
+
+---
+
+## Change Management
+
+### Change Control Process
+1. Identify change  
+2. Submit proposal  
+3. Risk assessment  
+4. Approval  
+5. Testing  
+6. Scheduling  
+7. Notification  
+8. Implementation  
+9. Post-change review  
+
+### Key Principles
+- Documentation is mandatory  
+- Auditors verify process adherence  
+- Changes introduce residual risk  
+
+---
+
+## Access Control Categories
+
+### Categories
+- **Administrative** – Policies and procedures  
+- **Technical** – Firewalls, encryption  
+- **Physical** – Locks, guards  
+
+### Control Types
+- Preventive  
+- Detective  
+- Corrective  
+- Recovery  
+- Deterrent  
+- Compensating  
+
+---
+
+## Information Security Governance
+
+### Policies
+- Acceptable Use Policy (AUP)  
+- BYOD Policy  
+- Privacy Policy  
+- Password Policy  
+
+### Data States
+- **At Rest**  
+- **In Motion**  
+- **In Use**  
+
+---
+
+## Security Awareness
+
+### Human Risk
+- Users are the largest attack surface  
+- Training builds knowledge  
+- Awareness changes behavior  
+
+### Goal
+- Create a cybersecurity culture  
+- Improve cyber hygiene  
+
+---
+
+## Social Engineering
+
+### What Is Social Engineering
+- Manipulating people to bypass security  
+- Often more effective than technical attacks  
+
+### Common Techniques
+- Authority  
+- Intimidation  
+- Urgency  
+- Scarcity  
+- Familiarity  
+- Consensus  
+
+### Attack Types
+- **Phishing** – Mass email attacks  
+- **Spear phishing** – Targeted attacks  
+- **Whaling** – Executives targeted  
+- **Vishing** – Voice-based attacks  
+
+---
+
+## Domain 5 Summary
+- Focuses on operational security practices  
+- Cryptography protects confidentiality and integrity  
+- Data must be classified, protected, and destroyed properly  
+- Change, patch, and configuration management reduce risk  
+- Humans remain the most exploited vulnerability  
