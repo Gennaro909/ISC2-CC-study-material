@@ -672,3 +672,307 @@ Alternative controls when primary controls are impractical or too costly.
 - Physical, technical, and administrative controls work together  
 - Access control models enforce confidentiality, integrity, and availability  
 - IAM ensures proper provisioning, monitoring, and revocation of access  
+
+
+# CC – Chapter 4 Lecture Notes  
+Networking, Infrastructure, Attacks, and Resilience
+
+---
+
+## Overview
+Domain 4 is the **largest CC domain**, covering networking fundamentals, communication models, infrastructure, attacks, and fault tolerance. It focuses on **how data moves**, **how networks are built**, and **how they are attacked and protected**.
+
+### Domain 4 Topics
+- Network basics and definitions  
+- OSI & TCP/IP models  
+- IP, ports, and MAC addresses  
+- Wireless and Wi-Fi technologies  
+- Attacks and attackers  
+- IDS/IPS, firewalls, SIEM/SOAR  
+- Virtualization, cloud, and distributed systems  
+- Fault tolerance, backups, and redundancy  
+- Secure design principles  
+
+---
+
+## Network Basics
+
+### What Is Networking
+- A network is a group of computers sharing data or resources  
+- Defense-in-depth applies to internal and external networks  
+
+### Communication Types
+- **Simplex**: One-way communication  
+- **Half-duplex**: Send or receive (one at a time)  
+- **Full-duplex**: Send and receive simultaneously  
+
+### Network Transmission
+- **Baseband**: Single channel (Ethernet)  
+- **Broadband**: Multiple channels (Internet)  
+
+### Network Types
+- **PAN**: Personal Area Network  
+- **LAN**: Local Area Network  
+- **MAN**: Metropolitan Area Network  
+- **WAN**: Wide Area Network  
+- **GAN**: Global Area Network  
+- **VPN**: Secure tunnel over public networks  
+
+### Switching
+- **Circuit Switching**: Dedicated path, guaranteed bandwidth  
+- **Packet Switching**: Shared paths, no guarantee (QoS can prioritize traffic)  
+
+---
+
+## OSI Model (7 Layers)
+
+1. **Physical** – Cables, signals, hubs  
+2. **Data Link** – MAC addresses, switches  
+3. **Network** – IP addressing, routing  
+4. **Transport** – TCP / UDP  
+5. **Session** – Session setup and teardown  
+6. **Presentation** – Encryption, compression  
+7. **Application** – User-facing protocols  
+
+Mnemonic: *Please Do Not Throw Sausage Pizza Away*
+
+### Common Threats by Layer
+- Layers 1–3: Sniffing, spoofing, flooding  
+- Layers 4–7: Malware, exploits, application attacks  
+
+---
+
+## TCP/IP Model
+
+### Layers
+- **Link** (OSI 1–2)  
+- **Internet** (OSI 3)  
+- **Transport** (OSI 4)  
+- **Application** (OSI 5–7)  
+
+### Key Concepts
+- Encapsulation and de-encapsulation  
+- TCP = reliable, connection-oriented  
+- UDP = fast, connectionless  
+
+---
+
+## Addressing
+
+### MAC Addresses
+- 48-bit (EUI-48) or 64-bit (EUI-64)  
+- Can be spoofed  
+
+### IP Addresses
+- **IPv4**: 32-bit, limited address space  
+- **IPv6**: 128-bit, massive address space, IPSec built-in  
+
+### IP Classes
+- Public IPs: Internet routable  
+- Private IPs (RFC 1918):  
+  - 10.0.0.0/8  
+  - 172.16.0.0/12  
+  - 192.168.0.0/16  
+
+### Ports
+- 0–1023: Well-known  
+- 1024–49151: Registered  
+- 49152–65535: Ephemeral  
+
+Common Ports:
+- 22 SSH  
+- 80 HTTP  
+- 443 HTTPS  
+- 3389 RDP  
+
+---
+
+## IP Support Protocols
+- **ARP**: IP → MAC resolution (vulnerable to poisoning)  
+- **ICMP**: Ping, traceroute  
+- **DHCP**: Automatic IP assignment  
+
+---
+
+## Network Media
+
+### Copper
+- UTP and STP  
+- Vulnerable to EMI, attenuation, crosstalk  
+
+### Fiber
+- Faster, longer distance, more secure  
+- Single-mode and multi-mode  
+
+---
+
+## LAN Topologies
+- **Bus**: Unstable, single break fails network  
+- **Star**: Most common, fault-tolerant  
+- **Ring**: Rare today  
+- **Mesh**: High availability and redundancy  
+
+---
+
+## Wireless Networks
+
+### Wi-Fi
+- IEEE 802.11 standards  
+- Easier to compromise than wired networks  
+
+### Wi-Fi Attacks
+- Rogue APs  
+- Evil Twins  
+- Jamming / interference  
+
+### Bluetooth
+- Short-range PAN  
+- Vulnerable to bluejacking, bluesnarfing, bluebugging  
+
+### Other Wireless
+- **Li-Fi**: Light-based data transfer  
+- **Zigbee**: Low power IoT mesh  
+- **Cellular**: 3G, 4G, 5G  
+- **Satellite**: High latency, improving with Starlink  
+
+---
+
+## Attacks and Attackers
+
+### Attacker Types
+- White Hat  
+- Black Hat  
+- Grey Hat  
+- Script Kiddies  
+
+### Threat Sources
+- **Outsiders**: Majority of attacks  
+- **Insiders**: Authorized misuse  
+- **Hacktivists**  
+- **Nation States**  
+
+### Botnets
+- Compromised systems controlled via C2 servers  
+
+---
+
+## Malware
+- **Viruses**: Require user action  
+- **Worms**: Self-propagating  
+- **Trojans**: Malicious code hidden in legit software  
+- **RATs**: Full remote control  
+
+---
+
+## IDS, IPS, and Monitoring
+
+### IDS
+- Detects attacks  
+- Generates alerts only  
+
+### IPS
+- Detects and blocks attacks  
+
+### Detection Methods
+- Signature-based  
+- Heuristic (behavior-based)  
+- Hybrid  
+
+### Alert Types
+- True Positive / True Negative  
+- False Positive / False Negative  
+
+### SIEM & SOAR
+- **SIEM**: Centralized log correlation  
+- **SOAR**: Automated incident response  
+
+---
+
+## Firewalls
+
+### Types
+- Packet filtering (L1–3)  
+- Stateful (L1–4)  
+- Application-layer (L7)  
+- Next-generation firewalls (NGFW)  
+
+### Deployment
+- Network-based  
+- Host-based  
+- DMZ architectures  
+
+---
+
+## Virtualization & Cloud
+
+### Virtualization
+- Multiple VMs on one host  
+- Type 1 (bare metal) vs Type 2 hypervisors  
+- Risks: VM escape, resource exhaustion  
+
+### Cloud Models
+- Private  
+- Public  
+- Hybrid  
+- Community  
+
+### Cloud Services
+- **IaaS**  
+- **PaaS**  
+- **SaaS**  
+
+---
+
+## Distributed Computing
+- Distributed systems appear as one service  
+- Includes HPC, edge computing, CDNs  
+
+---
+
+## Fault Tolerance & Resilience
+
+### Power Protection
+- Surge protectors  
+- UPS  
+- Generators  
+
+### Backups
+- Full  
+- Incremental  
+- Differential  
+- Copy  
+
+### Redundancy
+- RAID 0, 1, 5  
+- Clustering  
+- Load balancing  
+- Geographic redundancy  
+
+---
+
+## Fire Suppression
+- Remove oxygen, heat, or fuel  
+- Water, gas-based systems, extinguishers  
+- PASS method  
+
+---
+
+## Secure Design Principles
+- Least Privilege  
+- Need to Know  
+- Separation of Duties  
+- Defense in Depth  
+- Secure Defaults  
+- Fail Securely  
+- Zero Trust  
+- Privacy by Design  
+- Shared Responsibility  
+
+---
+
+## Domain 4 Summary
+- Networking fundamentals underpin security  
+- Attacks target every OSI layer  
+- Defense requires layered controls  
+- Availability depends on redundancy and resilience  
+- Secure design principles guide all architectures  
